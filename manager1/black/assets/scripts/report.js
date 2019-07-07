@@ -7,7 +7,7 @@ function addReportedUser(id, name, detail) {
     newRow.insertCell(0).innerHTML = id;
     newRow.insertCell(1).innerHTML = name;
     newRow.insertCell(2).innerHTML = detail;
-    newRow.insertCell(3).innerHTML = "<button type=\"button\" class=\"btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light\">封禁</button>"
+    newRow.insertCell(3).innerHTML = "<button onclick=\"limitUser(this)\" type=\"button\" class=\"btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light\">封禁</button>"
     updateReportedUsers();
     updateReportNum();
 }
@@ -26,7 +26,7 @@ function addReportedMusic(id, name, uploader, detail) {
     newRow.insertCell(1).innerHTML = name;
     newRow.insertCell(2).innerHTML = uploader;
     newRow.insertCell(3).innerHTML = detail;
-    newRow.insertCell(4).innerHTML = "<button type=\"button\" class=\"btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light\">删除</button>"
+    newRow.insertCell(4).innerHTML = "<button  onclick=\"removeMusic(this)\" type=\"button\" class=\"btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light\">删除</button>"
     updateReportedMusics();
     updateReportNum();
 }
@@ -63,4 +63,14 @@ function updateReportNum() {
     if (numRM && numRU && numRM + numRU > 0) {
         document.getElementById('numReports').innerHTML = numRU + numRM;
     }
+}
+
+function removeMusic(btn){
+    var rowIndex = btn.parentNode.parentNode.rowIndex;
+    removeReportedMusic(rowIndex);
+}
+
+function limitUser(btn) {
+    var rowIndex = btn.parentNode.parentNode.rowIndex;
+    removeReportedUser(rowIndex);
 }
