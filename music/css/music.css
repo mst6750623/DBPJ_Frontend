@@ -20,6 +20,7 @@
 }
 
 #music_info {
+    margin-top:20px;
     color:black;
 }
 #music_info h1 {
@@ -40,8 +41,19 @@
     border:1px solid gray;
     border-radius: 5px;
 }
-.btn-default:hover {
-    color:rgb(36, 243, 174);
+.collect_note {
+    position:fixed;
+    z-index: 999;
+    text-align: center;
+    height:50px;
+    width:150px;
+    font-size:22pt;
+    background-color:white;
+    border:1px solid black;
+    box-shadow: darkgray 1px 1px 10px 5px ; 
+}
+#btn_report {
+    border:0px;
 }
 
 #lyrics {
