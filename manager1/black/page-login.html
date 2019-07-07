@@ -18,15 +18,15 @@
 <body>
 
 <div id="single-wrapper">
-	<form action="#" class="frm-single">
+	<form action="" class="frm-single" id = 'loginForm'>
 		<div class="inside">
 			<div class="title"><strong>Ninja</strong>Admin</div>
 			<!-- /.title -->
 			<div class="frm-title">Login</div>
 			<!-- /.frm-title -->
-			<div class="frm-input"><input type="text" placeholder="Username" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
+			<div class="frm-input"><input type="text" placeholder="Username" name="username" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
 			<!-- /.frm-input -->
-			<div class="frm-input"><input type="password" placeholder="Password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
+			<div class="frm-input"><input type="password" placeholder="Password" name="password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
 			<!-- /.frm-input -->
 			<div class="clearfix margin-bottom-20">
 				<div class="pull-left">
@@ -38,7 +38,7 @@
 				<!-- /.pull-right -->
 			</div>
 			<!-- /.clearfix -->
-			<button type="submit" class="frm-submit">Login<i class="fa fa-arrow-circle-right"></i></button>
+			<button onclick="login()" class="frm-submit">Login<i class="fa fa-arrow-circle-right"></i></button>
 			<div class="row small-spacing">
 				<div class="col-sm-12">
 					<div class="txt-login-with txt-center">or login with</div>
@@ -69,10 +69,12 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/jquery.cookie.js"></script>
 	<script src="assets/scripts/modernizr.min.js"></script>
 	<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/plugin/nprogress/nprogress.js"></script>
 	<script src="assets/plugin/waves/waves.min.js"></script>
+	<script src="assets/scripts/login.js"></script>
 
 	<script src="assets/scripts/main.min.js"></script>
 </body>
