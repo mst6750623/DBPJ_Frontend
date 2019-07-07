@@ -7,13 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Upload Accompanion</title>
+    <title>管理用户信息</title>
 
     <!-- Main Styles -->
     <link rel="stylesheet" href="assets/styles/style.min.css">
-
-    <link rel="stylesheet" href="assets/styles/base.css">
-    <link rel="stylesheet" href="assets/plugin/x-editable/bootstrap3-editable/css/bootstrap-editable.css">
 
     <!-- Material Design Icon -->
     <link rel="stylesheet" href="assets/fonts/material-design/css/materialdesignicons.css">
@@ -26,9 +23,6 @@
 
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
-
-    <!-- Dropify -->
-    <link rel="stylesheet" href="assets/plugin/dropify/css/dropify.min.css">
 
     <!-- Dark Themes -->
     <link rel="stylesheet" href="assets/styles/style-black.min.css">
@@ -74,15 +68,15 @@
                             class="menu-arrow fa fa-angle-down"></span><span class="notice notice-danger"
                                                                              id="numReports">6</span></a>
                     <ul class="sub-menu js__content">
-                        <li><a href="reportedUsers.html">被举报用户</a></li>
-                        <li><a href="reportedMusics.html">被举报音乐作品</a></li>
+                        <li><a href="reportedUsers.html"><span>被举报用户</span></a></li>
+                        <li><a href="reportedMusics.html"><span>被举报音乐作品</span></a></li>
                     </ul>
                 </li>
-                <li class="current">
+                <li>
                     <a class="waves-effect" href="form-fileupload.html"><i
                             class="menu-icon mdi mdi-music-box"></i><span>上传伴奏</span></a>
                 </li>
-                <li>
+                <li class="current">
                     <a class="waves-effect" href="userInfoManagement.html"><i
                             class="menu-icon mdi mdi-information"></i><span>管理用户信息</span></a>
                 </li>
@@ -99,7 +93,7 @@
 <div class="fixed-navbar">
     <div class="pull-left">
         <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
-        <h1 class="page-title">上传伴奏</h1>
+        <h1 class="page-title">管理用户信息</h1>
         <!-- /.page-title -->
     </div>
     <!-- /.pull-left -->
@@ -295,12 +289,10 @@
 <div id="wrapper">
     <div class="main-content">
         <div class="row small-spacing">
-
-            <!-- /.col-md-6 col-xs-12 -->
-
-            <div class="col-md-12 col-xs-12">
+            <div class="col-xs-12">
                 <div class="box-content">
-                    <h4 class="box-title">上传伴奏</h4>
+                    <h4 class="box-title">管理用户信息</h4>
+                    <!-- /.ico-item -->
                     <!-- /.box-title -->
                     <div class="dropdown js__drop_down">
                         <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
@@ -314,34 +306,27 @@
                         <!-- /.sub-menu -->
                     </div>
                     <!-- /.dropdown js__dropdown -->
-                    <input type="file" id="input-file-to-destroy" multiple class="dropify"
-                           data-allowed-file-extensions="mp3" data-max-file-size="10M"/>
-                    <p class="help margin-top-10">只能上传音乐伴奏，大小限制在10M以下</p>
-
+                    <table class="table table-bordered table-hover">
+                        <tbody>
+                        <tr>
+                            <th>用户名</th>
+                            <th contentEditable="true" style="border: 2px solid #b1bac6">saturn</th>
+                        </tr>
+                        <tr>
+                            <th>用户简介</th>
+                            <th contentEditable="true" style="border: 2px solid #b1bac6">This users is very lazy and leaves nothing</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div align="center">
+                        <button type="button"
+                                class="btn btn-rounded btn-bordered btn-success btn-sm waves-effect waves-light">提交修改
+                        </button>
+                    </div>
                 </div>
-                <table id="fileList_parent" class="table table-bordered table-hover" hidden="true">
-                    <thead>
-                    <tr>
-                        <th>伴奏名</th>
-                        <th>类型</th>
-                        <th>大小</th>
-                        <th>伴奏作者</th>
-                        <th>进度</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody class="fileList">
 
-                    </tbody>
-                </table>
-                <div align="center">
-                    <button type="button" class="btn btn-success btn-bordered waves-effect waves-light"
-                            style="display: none;horiz-align: left;" id="fileBtn">
-                        上传
-                    </button>
-                </div>
             </div>
-            <!-- /.col-md-6 col-xs-12 -->
+            <!-- /.col-xs-12 -->
         </div>
     </div>
     <!-- /.main-content -->
@@ -361,14 +346,9 @@
 <script src="assets/plugin/nprogress/nprogress.js"></script>
 <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
 <script src="assets/plugin/waves/waves.min.js"></script>
-<script src="assets/scripts/multiFileInput.js"></script>
 
-<!-- Dropify -->
-<script src="assets/plugin/dropify/js/dropify.min.js"></script>
-<script src="assets/scripts/fileUpload.demo.min.js"></script>
-
-<script src="assets/plugin/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-<script src="assets/scripts/x-editable.demo.min.js"></script>
+<!-- Moment -->
+<script src="assets/plugin/moment/moment.js"></script>
 
 <script src="assets/scripts/main.min.js"></script>
 </body>
