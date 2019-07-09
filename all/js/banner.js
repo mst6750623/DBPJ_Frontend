@@ -73,6 +73,4 @@ var msgs=document.createElement('ul');
 msgs.innerHTML='<li>您的粉丝达到了2人!</li><hr><li>您的举报得到了回复</li><hr><li>新私信</li>'
 msg_box.appendChild(msgs);
 
-
-
 }

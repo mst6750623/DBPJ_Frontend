@@ -3,19 +3,10 @@ var mousex; //鼠标的x坐标
 var medisArray = new Array(); // 定义一个新的数组
 $(document).ready(function () {
     var music = document.getElementById('music');
-    $("#login_reg").click(login);
     $("#btn_play").click(function () {
         music.currentTime = 0;
         play();
     });
-    $("#search").on('keydown',function (e){
-        if(e.keyCode==13){
-             if($('#search').val()){
-                 window.location.href='search.html?search='+$('#search').val();
-             }
-             return false;
-         }
-     });
 
     var paras = location.search; 
     var result = paras.match(/[^\?&]*=[^&]*/g); 
@@ -172,24 +163,3 @@ function lineHeight(lineno) {
 
 }
 
-function login() {
-    var login_div=document.createElement('iframe');
-    var login_close=document.createElement('i');
-    var blocker=document.createElement('div');
-    login_div.src="page-login.html";
-    login_div.classList.add('login','new');
-    login_close.classList.add('fa','fa-close','fa-2x','login_close','new');
-    blocker.classList.add('box','new');
-    var body=document.getElementById('music_info');
-    body.insertBefore(login_div,body.childNodes[0]);
-    body.insertBefore(login_close,body.childNodes[0]);
-    body.insertBefore(blocker,body.childNodes[0]);
-    $('html,body').css('overflow','hidden')
-    $(".login_close").click(login_complete);
-    
-}
-
-function login_complete() {
-    $(".new").remove();
-    $('html,body').css('overflow', '');
-}
