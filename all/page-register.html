@@ -18,30 +18,27 @@
 <body>
 
 <div >
-	<form action="" class="frm-single" id="forms">
+	<form action="javascript:void(0);" class="frm-single" id="forms">
 		<div class="inside">
 			<div class="title"><strong>Demosic</strong>用户</div>
 			<!-- /.title -->
-			<div class="frm-title">登录</div>
+			<div class="frm-title">注册</div>
 			<!-- /.frm-title -->
-			<div class="frm-input"><input type="text" placeholder="账号" class="frm-inp" required="required"  v-model="user_id"><i class="fa fa-user frm-ico"></i></div>
+			<div class="frm-input"><input type="text" placeholder="昵称" class="frm-inp" required="required" id="user_name" v-model="user_name"><i class="fa fa-user frm-ico"></i></div>
 			<!-- /.frm-input -->
-			<div class="frm-input"><input type="password" placeholder="密码" class="frm-inp" required="required"  v-model="password"><i class="fa fa-lock frm-ico"></i></div>
+			<div class="frm-input"><input type="password" placeholder="密码" class="frm-inp" required="required" id="password_1" v-model="password_1"><i class="fa fa-lock frm-ico"></i></div>
+			<!-- /.frm-input -->
+			<div class="frm-input"><input type="password" placeholder="再输一遍密码" class="frm-inp" required="required" id="password_2" v-model="password_2"><i class="fa fa-lock frm-ico"></i></div>
 			<!-- /.frm-input -->
 			<div class="clearfix margin-bottom-20">
-				<div class="pull-left">
-					<div class="checkbox primary"><input type="checkbox" id="rememberme"><label for="rememberme">记住密码</label></div>
-					<!-- /.checkbox -->
-				</div>
-				<!-- /.pull-left -->
-				<div class="pull-right"><a href="page-register.html" class="a-link"><i class="fa fa-unlock-alt"></i>忘记密码？</a></div>
-				<!-- /.pull-right -->
+				<div class="checkbox primary"><input type="checkbox" id="accept" v-model="legacy_check"><label for="accept">我已阅读并同意相关条款及隐私政策</label></div>
+				<!-- /.checkbox -->
 			</div>
 			<!-- /.clearfix -->
-			<button type="submit" class="frm-submit" v-on:click="confirm">登录<i class="fa fa-arrow-circle-right"></i></button>
+			<button type="submit" class="frm-submit" id="register_confirm" v-on:click="confirm">注册<i class="fa fa-arrow-circle-right"></i></button>
 			
 			<!-- /.row -->
-			<a href="page-register.html" class="a-link"><i class="fa fa-key"></i>还没有账号？前往注册</a>
+			<a href="page-login.html" class="a-link"><i class="fa fa-sign-in"></i>已有账号？前往登录</a>
 			<div class="frm-footer">Demosic © 2019.</div>
 			<!-- /.footer -->
 		</div>
@@ -67,6 +64,6 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <script src="js/vue.js"></script>
 	<script src="assets/scripts/main.min.js"></script>
-	<script src="js/login.js"></script>
+	<script src="js/register.js"></script>
 </body>
 </html>
