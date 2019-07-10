@@ -1,12 +1,5 @@
 //scripts for initiating the index page
 
-window.onload = function() {
-  
-};
-
-
-
-
 $(function() {
   if (sessionStorage.getItem('rankBoard') === null) {
     var rankBoard = [{
@@ -157,7 +150,7 @@ $(function() {
         'id': 'emo joy',
       },
       {
-        'src': 'images/miss.jpg',
+        'src': 'images/miss_main.jpg',
         'name': '思念',
         'id': 'emo miss',
       },
@@ -363,20 +356,12 @@ function rank(type) {
 
   $('#rankItems').slideDown('slow');
   $('.musicEntry').hover(function() {
-    $(this).children('.accompanyInfo').css('color', '#51b180');
-    $(this).children('.accompanyInfo').css('font-weight', 'bold');
-    $(this).children('.accompanyInfo').css('font-size', '22px');
-    $(this).children('.lastAccompanyInfo').css('color', '#51b180');
-    $(this).children('.lastAccompanyInfo').css('font-weight', 'bold');
-    $(this).children('.lastAccompanyInfo').css('font-size', '22px');
+    $(this).children('.accompanyInfo').addClass('hoveron');
+    $(this).children('.lastAccompanyInfo').addClass('hoveron');
     $(this).find('a').show();
   }, function() {
-    $(this).children('.accompanyInfo').css('color', '#000000');
-    $(this).children('.accompanyInfo').css('font-weight', 'normal');
-    $(this).children('.accompanyInfo').css('font-size', '18px');
-    $(this).children('.lastAccompanyInfo').css('color', '#000000');
-    $(this).children('.lastAccompanyInfo').css('font-weight', 'normal');
-    $(this).children('.lastAccompanyInfo').css('font-size', '18px');
+    $(this).children('.accompanyInfo').removeClass('hoveron');
+    $(this).children('.lastAccompanyInfo').removeClass('hoveron');
     $(this).find('a').hide();
   })
 }
@@ -415,7 +400,6 @@ function recommend(type) {
     }
   ];
 
-  console.log(tags[0]);
   var recomBoard = JSON.parse(sessionStorage.getItem(tags[0] + 'Board'));
   for (recomItem of recomBoard) {
     if (recomItem['id'] === type) {
@@ -430,25 +414,17 @@ function recommend(type) {
   for (song of songs) {
     $('#' + tags[0] + 'Item').append('<div class="musicEntry"><img src="' + song['imgSrc'] + '" class="accompanyImage" />' +
       '<h4 class="accompanyInfo">' + song['songName'] + '</h4><h4 class="accompanyInfo">' + song['user'] + '</h4><h4 class="accompanyInfo">' + song['playNum'] + '</h4>' +
-      '<h4 class="lastAccompanyInfo">' + song['likeNum'] + '</h4><a href="#" style="display: none;margin-right: 10px;"><i class="fa fa-play"></i></a></div>');
+      '<h4 class="lastAccompanyInfo">' + song['likeNum'] + '</h4><a href="music.html?music_id='+song['id']+'" style="display: none;margin-right: 10px;"><i class="fa fa-play"></i></a></div>');
   }
 
   $('#' + tags[0] + 'Item').slideDown('slow');
   $('.musicEntry').hover(function() {
-    $(this).children('.accompanyInfo').css('color', '#51b180');
-    $(this).children('.accompanyInfo').css('font-weight', 'bold');
-    $(this).children('.accompanyInfo').css('font-size', '22px');
-    $(this).children('.lastAccompanyInfo').css('color', '#51b180');
-    $(this).children('.lastAccompanyInfo').css('font-weight', 'bold');
-    $(this).children('.lastAccompanyInfo').css('font-size', '22px');
+    $(this).children('.accompanyInfo').addClass('hoveron');
+    $(this).children('.lastAccompanyInfo').addClass('hoveron');
     $(this).find('a').show();
   }, function() {
-    $(this).children('.accompanyInfo').css('color', '#000000');
-    $(this).children('.accompanyInfo').css('font-weight', 'normal');
-    $(this).children('.accompanyInfo').css('font-size', '18px');
-    $(this).children('.lastAccompanyInfo').css('color', '#000000');
-    $(this).children('.lastAccompanyInfo').css('font-weight', 'normal');
-    $(this).children('.lastAccompanyInfo').css('font-size', '18px');
+    $(this).children('.accompanyInfo').removeClass('hoveron')
+    $(this).children('.lastAccompanyInfo').removeClass('hoveron');
     $(this).find('a').hide();
   })
 }

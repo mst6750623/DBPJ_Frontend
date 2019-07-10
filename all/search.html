@@ -54,7 +54,11 @@
                         <div class="log-btn">
                             <div id="search-btn">
                                 <form>
-                                    <input id="search" name="search" type="text" placeholder="搜索音乐" >
+                                    <input id="search" name="search" type="text" placeholder="搜索音乐" onkeydown="if(event.keyCode==13){
+                                        if($('#search').val()){
+                                            window.location.href='search.html';
+                                        }
+                                        return false;}">
                                     <a href="#" class="fa fa-search"></a>
                                 </form>
                             </div>
@@ -90,7 +94,7 @@
 
     <!-- Start-Package-Section -->
     <section id="head1">
-            <div id="presentation" class="container" style="width:100%;position: relative;min-width: 1200px;">
+            <div id="presentation" class="container" style="width:100%;position: relative;min-width: 1200px">
                 
             </div>
         </section>
@@ -102,7 +106,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="left-text">
-                        Copyright &copy; 2019.<a target="_blank" href="https://github.com/mst6750623/DB_Frontend"> 同济大学软件学院17级数据库课程设计第17组</a>
+                        Copyright &copy; 2019.<a target="_blank" href="https://github.com/mst6750623/DB_Frontend">
+                            同济大学软件学院17级数据库课程设计第17组</a>
                     </div>
                 </div>
             </div>

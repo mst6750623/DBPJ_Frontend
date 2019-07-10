@@ -2,20 +2,22 @@ var t1 = null;
 var mousex; //鼠标的x坐标
 var medisArray = new Array(); // 定义一个新的数组
 $(document).ready(function () {
+    "use strict";
+    var $main_window = $(window);
+    /*====================================
+        preloader js
+      ======================================*/
+    $main_window.on('load', function () {
+        $('#preloader').fadeOut('slow');
+    });
+
     var music = document.getElementById('music');
     $("#btn_play").click(function () {
         music.currentTime = 0;
         play();
     });
 
-    var paras = location.search; 
-    var result = paras.match(/[^\?&]*=[^&]*/g); 
-    paras = {};					//让paras变成没有内容的json对象
-    for(i in result){
-	    var temp = result[i].split('=');	//split()将一个字符串分解成一个数组,两次遍历result中的值分别为['itemId','xx']
-	    paras[temp[0]] = temp[1];
-    }
-    var accomp_id = paras["music_id"];     //根据参数名"itemId"，获取参数值
+   
     
     $("#uploader_name").click(function () {
         window.location.href="user_info.html?user_id="/*+data['user_id']*/;//！！！！！data需添加，此处get上传者的id

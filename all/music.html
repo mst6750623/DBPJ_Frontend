@@ -33,7 +33,8 @@
 
 <body id="container">
 
-
+    <!-- Preloader -->
+    <div id="preloader"></div>
   <div id='music_info'>
     <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -101,7 +102,7 @@
 
                     <div class="btn-group btn-group-lg" id="good_area">
                         <button type="button" class="btn" id="btn_good" v-on:click="like">赞 <i class="fa fa-thumbs-up" v-bind:class='{red:is_liked}'></i>
-                            <span>{{total_likes}}</span> </button>
+                            <span>{{total_like}}</span> </button>
 
                     </div>
                     <div class="btn-group btn-group-lg">
@@ -215,7 +216,7 @@
 
 
     </div>
-    
+
     <div class="erect_l"></div>
     <div class="erect_r"></div>
     <footer class="navbar navbar-expand-lg ">
@@ -237,7 +238,7 @@
         </div>
 
     </footer>
-    
+
   </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>

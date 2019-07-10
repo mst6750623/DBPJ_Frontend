@@ -1,14 +1,13 @@
-window.onload = function() {
-  $("#login").click(login);
-  $("#search").on('keydown',function (e){
-    if(e.keyCode==13){
-         if($('#search').val()){
-             window.location.href='search.html?search='+$('#search').val();
-         }
-         return false;
-     }
- });
-};
+
+$("#login").click(login);
+$("#search").on('keydown',function (e){
+  if(e.keyCode==13){
+        if($('#search').val()){
+            window.location.href='search.html?search='+$('#search').val();
+        }
+        return false;
+    }
+});
 
 function login() {
   var login_div=document.createElement('iframe');
