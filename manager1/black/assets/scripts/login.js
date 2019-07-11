@@ -4,24 +4,16 @@ function login() {
     var encoded = btoa(formData.get('user_id') + ':' + formData.get('password'));
     $.ajax({
         type : 'GET',
-        url : '/url?role=admin',
+        url : '/api/login?role=admin',
         headers: {
             'Authorization': 'Basic ' + encoded
         },
         success : function(data){
-            sessionStorage.setItem('username', data['username']);
             sessionStorage.setItem('admin_id', formData.get('user_id'));
             sessionStorage.setItem('token', data['access_token']);
-            window.location = '/index.html';
+            window.location = 'reportedUsers.html';
         }
     })
-}
-
-window.onload = function checkUser(){
-    var username = sessionStorage.getItem('username');
-    if(username){
-        document.getElementById('adminName').innerHTML=username;
-    }
 }
 
 

@@ -163,19 +163,20 @@ function updateReportNum() {
 function removeMusic(btn) {
     var rowIndex = btn.parentNode.parentNode.rowIndex;
     var data = {
-        'music_id': rM.rows[rowIndex].cells[2].innerHTML,
-        'admin_id': sessionStorage.getItem('admin_id')
+        'music_id': parseInt(rM.rows[rowIndex].cells[2].innerHTML),
+        'admin_id': parseInt(sessionStorage.getItem('admin_id')),
+        'details': rM.rows[rowIndex].cells[5].innerHTML
     };
     removeReportedMusic(rowIndex);
     $.ajax({
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        url: '/',
-        header: {
+        url: '/api/Admin/deleteMusic',
+        headers: {
             'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         },
-        data: {},
+        data: JSON.stringify(data),
         success: function (data) {
 
         }
@@ -185,20 +186,21 @@ function removeMusic(btn) {
 function limitUser(btn) {
     var rowIndex = btn.parentNode.parentNode.rowIndex;
     var data = {
-        'user_id': rU.rows[rowIndex].cells[2].innerHTML,
-        'admin_id': sessionStorage.getItem('admin_id'),
-        'days': rU.rows[rowIndex].cells[5].innerHTML
+        'user_id': parseInt(rU.rows[rowIndex].cells[2].innerHTML),
+        'admin_id': parseInt(sessionStorage.getItem('admin_id')),
+        'days': parseInt(rU.rows[rowIndex].cells[5].innerHTML),
+        'details': rU.rows[rowIndex].cells[4].innerHTML
     };
     removeReportedUser(rowIndex);
     $.ajax({
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        url: '/',
-        header: {
+        url: '/api/Admin/deleteUser',
+        headers: {
             'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         },
-        data: data,
+        data: JSON.stringify(data),
         success: function (data) {
 
         }
@@ -207,11 +209,11 @@ function limitUser(btn) {
 
 function requestReports() {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        url: '/url',
-        header: {
+        url: 'api/Admin/reports',
+        headers: {
             'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         },
         success: function (data) {

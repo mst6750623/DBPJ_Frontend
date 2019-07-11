@@ -131,10 +131,13 @@ $(function () {
 
             var request = $.ajax({
                 type: "POST",
-                url: url,
+                url: 'api/Admin/uploadAccomp',
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+                },
 
                 xhr: function () {
                     var xhr = $.ajaxSettings.xhr();
@@ -144,7 +147,6 @@ $(function () {
                     }
                 },
 
-                //上传成功后回调
                 success: function () {
                     oOperation.text("成功");
                     oOperation.css('color', 'green');
@@ -155,11 +157,11 @@ $(function () {
                     }
                 },
 
-                //上传失败后回调
+                
                 error: function () {
                     oOperation.text("重传");
                     oOperation.on("click", function () {
-                        request.abort();		//终止本次
+                        request.abort();	
                         uploadFn(obj, i);
                     });
                 }
@@ -167,11 +169,10 @@ $(function () {
             });
 
 
-            //侦查附件上传情况 ,这个方法大概0.05-0.1秒执行一次
             function onprogress(evt) {
-                var loaded = evt.loaded;	//已经上传大小情况
-                var tot = evt.total;		//附件总大小
-                var per = Math.floor(100 * loaded / tot);  //已经上传的百分比
+                var loaded = evt.loaded;	
+                var tot = evt.total;		
+                var per = Math.floor(100 * loaded / tot); 
                 progressNum.html(per + "%");
                 progress.css("width", per + "%");
             }
