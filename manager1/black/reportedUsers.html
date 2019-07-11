@@ -23,6 +23,7 @@
 
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+    <link rel="stylesheet" href="assets/plugin/toastr/toastr.css">
 
     <!-- Dark Themes -->
     <link rel="stylesheet" href="assets/styles/style-black.min.css">
@@ -31,23 +32,14 @@
 <body>
 <div class="main-menu">
     <header class="header">
-        <a href="index.html" class="logo"><i class="ico mdi mdi-cube-outline"></i>MyAdmin</a>
+        <a href="#" class="logo"><i class="ico mdi mdi-cube-outline"></i>MyAdmin</a>
         <button type="button" class="button-close fa fa-times js__menu_close"></button>
         <div class="user">
             <a href="#" class="avatar"><img src="assets/images/avatar-sm-5.jpg" alt=""><span
                     class="status online"></span></a>
-            <h5 class="name"><a href="profile.html">Denise Emily</a></h5>
+            <h5 class="name"><a href="#">Denise Emily</a></h5>
             <h5 class="position">Administrator</h5>
-            <!-- /.name -->
-            <div class="control-wrap js__drop_down">
-                <i class="fa fa-caret-down js__drop_down_button"></i>
-                <div class="control-list">
-                    <div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
-                    <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
-                    <div class="control-item"><a href="#"><i class="fa fa-sign-out"></i> Log out</a></div>
-                </div>
-                <!-- /.control-list -->
-            </div>
+
             <!-- /.control-wrap -->
         </div>
         <!-- /.user -->
@@ -59,26 +51,29 @@
             <h5 class="title">Navigation</h5>
             <!-- /.title -->
             <ul class="menu js__accordion">
-                <li>
-                    <a class="waves-effect" href="index.html"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
-                </li>
-                <li class="current">
-                    <a class="waves-effect parent-item js__control" href="#"><i
-                            class="menu-icon mdi mdi-human-handsup"></i><span>举报</span><span
-                            class="menu-arrow fa fa-angle-down"></span><span class="notice notice-danger"
-                                                                             id="numReports">6</span></a>
+                <li class="current active">
+                    <a class="waves-effect parent-item" href="#"><i
+                            class="menu-icon mdi mdi-human-handsup"></i><span>未处理举报</span><span
+                            class="notice notice-danger"
+                            id="numReports">6</span></a>
                     <ul class="sub-menu js__content">
                         <li class="current"><a href="reportedUsers.html">被举报用户</a></li>
                         <li><a href="reportedMusics.html">被举报音乐作品</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a class="waves-effect" href="form-fileupload.html"><i
+                    <a class="waves-effect" href="accomp_upload.html"><i
                             class="menu-icon mdi mdi-music-box"></i><span>上传伴奏</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect" href="userInfoManagement.html"><i
-                            class="menu-icon mdi mdi-information"></i><span>管理用户信息</span></a>
+                    <a class="waves-effect parent-item" href="#">
+                        <i class="menu-icon mdi mdi-check"></i>
+                        <span>已处理举报</span>
+                    </a>
+                    <ul class="sub-menu js__content" style="display: block">
+                        <li><a href="handledUserReports.html">被举报用户</a></li>
+                        <li><a href="handledMusicReports.html">被举报歌曲</a></li>
+                    </ul>
                 </li>
                 <!-- /.sub-menu js__content -->
             </ul>
@@ -107,184 +102,12 @@
             </form>
             <!-- /.searchform -->
         </div>
-        <!-- /.ico-item -->
-        <a href="#" class="ico-item mdi mdi-email notice-alarm js__toggle_open" data-target="#message-popup"></a>
-        <a href="#" class="ico-item pulse"><span class="ico-item mdi mdi-bell notice-alarm js__toggle_open"
-                                                 data-target="#notification-popup"></span></a>
         <a href="#" class="ico-item mdi mdi-logout js__logout"></a>
     </div>
     <!-- /.pull-right -->
 </div>
 <!-- /.fixed-navbar -->
 
-<div id="notification-popup" class="notice-popup js__toggle" data-space="75">
-    <h2 class="popup-title">Your Notifications</h2>
-    <!-- /.popup-title -->
-    <div class="content">
-        <ul class="notice-list">
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-1.jpg" alt=""></span>
-                    <span class="name">John Doe</span>
-                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
-                    <span class="time">10 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-2.jpg" alt=""></span>
-                    <span class="name">Anna William</span>
-                    <span class="desc">Like your post: “Facebook Messenger”</span>
-                    <span class="time">15 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar bg-warning"><i class="fa fa-warning"></i></span>
-                    <span class="name">Update Status</span>
-                    <span class="desc">Failed to get available update data. To ensure the please contact us.</span>
-                    <span class="time">30 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-1.jpg" alt=""></span>
-                    <span class="name">Jennifer</span>
-                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
-                    <span class="time">45 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-6.jpg" alt=""></span>
-                    <span class="name">Michael Zenaty</span>
-                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
-                    <span class="time">50 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-4.jpg" alt=""></span>
-                    <span class="name">Simon</span>
-                    <span class="desc">Like your post: “Facebook Messenger”</span>
-                    <span class="time">1 hour</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar bg-violet"><i class="fa fa-flag"></i></span>
-                    <span class="name">Account Contact Change</span>
-                    <span class="desc">A contact detail associated with your account has been changed.</span>
-                    <span class="time">2 hours</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-7.jpg" alt=""></span>
-                    <span class="name">Helen 987</span>
-                    <span class="desc">Like your post: “Facebook Messenger”</span>
-                    <span class="time">Yesterday</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-2.jpg" alt=""></span>
-                    <span class="name">Denise Jenny</span>
-                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
-                    <span class="time">Oct, 28</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-8.jpg" alt=""></span>
-                    <span class="name">Thomas William</span>
-                    <span class="desc">Like your post: “Facebook Messenger”</span>
-                    <span class="time">Oct, 27</span>
-                </a>
-            </li>
-        </ul>
-        <!-- /.notice-list -->
-        <a href="#" class="notice-read-more">See more messages <i class="fa fa-angle-down"></i></a>
-    </div>
-    <!-- /.content -->
-</div>
-<!-- /#notification-popup -->
-
-<div id="message-popup" class="notice-popup js__toggle" data-space="75">
-    <h2 class="popup-title">Recent Messages<a href="#" class="pull-right text-danger">New message</a></h2>
-    <!-- /.popup-title -->
-    <div class="content">
-        <ul class="notice-list">
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-1.jpg" alt=""></span>
-                    <span class="name">John Doe</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">10 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-3.jpg" alt=""></span>
-                    <span class="name">Harry Halen</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">15 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-4.jpg" alt=""></span>
-                    <span class="name">Thomas Taylor</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">30 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-1.jpg" alt=""></span>
-                    <span class="name">Jennifer</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">45 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-sm-5.jpg" alt=""></span>
-                    <span class="name">Helen Candy</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">45 min</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-2.jpg" alt=""></span>
-                    <span class="name">Anna Cavan</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">1 hour ago</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar bg-success"><i class="fa fa-user"></i></span>
-                    <span class="name">Jenny Betty</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">1 day ago</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="avatar"><img src="assets/images/avatar-5.jpg" alt=""></span>
-                    <span class="name">Denise Peterson</span>
-                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
-                    <span class="time">1 year ago</span>
-                </a>
-            </li>
-        </ul>
-        <!-- /.notice-list -->
-        <a href="#" class="notice-read-more">See more messages <i class="fa fa-angle-down"></i></a>
-    </div>
-    <!-- /.content -->
-</div>
 <!-- /#message-popup -->
 <div id="wrapper">
     <div class="main-content">
@@ -308,43 +131,54 @@
                     <thead>
                     <tr>
                         <th>#</th>
+                        <th>举报者ID</th>
                         <th>用户ID</th>
                         <th>姓名</th>
                         <th>举报详情</th>
+                        <th>封禁天数</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
+                        <td>Saturn</td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
+                        <td contentEditable="true">3</td>
                         <td>
                             <button type="button" onclick="limitUser(this)"
-                                    class="btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">封禁
+                                    class="user_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
+                                封禁
                             </button>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
+                        <td>Saturn</td>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
+                        <td contentEditable="true">3</td>
                         <td>
                             <button type="button" onclick="limitUser(this)"
-                                    class="btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">封禁
+                                    class="user_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
+                                封禁
                             </button>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
+                        <td>Saturn</td>
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>@twitter</td>
+                        <td contentEditable="true">3</td>
                         <td>
                             <button type="button" onclick="limitUser(this)"
-                                    class="btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">封禁
+                                    class="user_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
+                                封禁
                             </button>
                         </td>
                     </tr>
@@ -372,6 +206,8 @@
 <script src="assets/plugin/nprogress/nprogress.js"></script>
 <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
 <script src="assets/plugin/waves/waves.min.js"></script>
+<script src="assets/plugin/toastr/toastr.min.js"></script>
+<script src="assets/scripts/pop_message.js"></script>
 
 <script src="assets/scripts/main.min.js"></script>
 </body>

@@ -23,11 +23,9 @@
 
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
-    <link rel="stylesheet" href="assets/plugin/toastr/toastr.css">
 
     <!-- Dark Themes -->
     <link rel="stylesheet" href="assets/styles/style-black.min.css">
-
 </head>
 
 <body>
@@ -40,7 +38,6 @@
                     class="status online"></span></a>
             <h5 class="name"><a href="#">Denise Emily</a></h5>
             <h5 class="position">Administrator</h5>
-
             <!-- /.control-wrap -->
         </div>
         <!-- /.user -->
@@ -52,27 +49,27 @@
             <h5 class="title">Navigation</h5>
             <!-- /.title -->
             <ul class="menu js__accordion">
-                <li class="current active">
+                <li>
                     <a class="waves-effect parent-item" href="#"><i
-                            class="menu-icon mdi mdi-human-handsup"></i><span>未处理举报</span><span
+                            class="menu-icon mdi mdi-human-handsup"></i><span>未处理举报</span></span><span
                             class="notice notice-danger"
                             id="numReports">6</span></a>
-                    <ul class="sub-menu js__content">
-                        <li><a href="reportedUsers.html">被举报用户</a></li>
-                        <li class="current"><a href="reportedMusics.html">被举报音乐作品</a></li>
+                    <ul class="sub-menu js__content" style="display: block">
+                        <li class="current"><a href="reportedUsers.html">被举报用户</a></li>
+                        <li><a href="reportedMusics.html">被举报音乐作品</a></li>
                     </ul>
                 </li>
                 <li>
                     <a class="waves-effect" href="accomp_upload.html"><i
                             class="menu-icon mdi mdi-music-box"></i><span>上传伴奏</span></a>
                 </li>
-                <li>
+                <li class="current active">
                     <a class="waves-effect parent-item" href="#">
                         <i class="menu-icon mdi mdi-check"></i>
                         <span>已处理举报</span>
                     </a>
-                    <ul class="sub-menu js__content" style="display: block">
-                        <li><a href="handledUserReports.html">被举报用户</a></li>
+                    <ul class="sub-menu js__content">
+                        <li class="current"><a href="handledUserReports.html">被举报用户</a></li>
                         <li><a href="handledMusicReports.html">被举报歌曲</a></li>
                     </ul>
                 </li>
@@ -89,7 +86,7 @@
 <div class="fixed-navbar">
     <div class="pull-left">
         <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
-        <h1 class="page-title">被举报音乐</h1>
+        <h1 class="page-title">被举报用户</h1>
         <!-- /.page-title -->
     </div>
     <!-- /.pull-left -->
@@ -114,7 +111,7 @@
     <div class="main-content">
         <div class="col-lg-12 col-xs-12">
             <div class="box-content">
-                <h4 class="box-title">被举报音乐</h4>
+                <h4 class="box-title">被举报用户</h4>
                 <!-- /.box-title -->
                 <div class="dropdown js__drop_down">
                     <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
@@ -128,70 +125,25 @@
                     <!-- /.sub-menu -->
                 </div>
                 <!-- /.dropdown js__dropdown -->
-                <table class="table table-bordered table-hover" id="reportedMusics">
+                <table class="table table-bordered table-hover" id="handledReportedUsers">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>举报者ID</th>
-                        <th>音乐ID</th>
-                        <th>音乐名称</th>
-                        <th>上传者</th>
+                        <th>用户ID</th>
+                        <th>姓名</th>
                         <th>举报详情</th>
-                        <th>操作</th>
+                        <th>封禁天数</th>
+                        <th>状态</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Saturn</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>That is how I know you, go on. Love is when I loved you. Near, far ,wherever you are, I
-                            believe that
-                            the heart will go on. Once more, you are in the door, and you hear when I loav
-                        </td>
-                        <td>
-                            <button type="button" onclick="removeMusic(this)"
-                                    class="music_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
-                                删除
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Saturn</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>shanghai</td>
-                        <td>
-                            <button type="button" onclick="removeMusic(this)"
-                                    class="music_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
-                                删除
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Saturn</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>shanghai</td>
-                        <td>
-                            <button type="button" onclick="removeMusic(this)"
-                                    class="music_showtoast btn btn-rounded btn-bordered btn-danger btn-sm waves-effect waves-light">
-                                删除
-                            </button>
-                        </td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
             <!-- /.box-content -->
         </div>
-
     </div>
     <!-- /.main-content -->
 </div><!--/#wrapper -->
@@ -211,8 +163,6 @@
 <script src="assets/plugin/nprogress/nprogress.js"></script>
 <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
 <script src="assets/plugin/waves/waves.min.js"></script>
-<script src="assets/plugin/toastr/toastr.min.js"></script>
-<script src="assets/scripts/pop_message.js"></script>
 
 <script src="assets/scripts/main.min.js"></script>
 </body>
